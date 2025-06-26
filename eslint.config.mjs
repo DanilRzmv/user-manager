@@ -15,6 +15,7 @@ const eslintConfig = [
       "**/node_modules/*",
       "**/out/*",
       "**/.next/*",
+      "**/.github/*",
       "**/coverage",
       "src/styles/globals.css",
     ],
