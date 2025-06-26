@@ -1,25 +1,22 @@
 {
-    "extends": [
-        "stylelint-config-standard",
-        "stylelint-config-tailwindcss"
+  "extends": ["stylelint-config-standard", "stylelint-config-tailwindcss"],
+  "rules": {
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "tailwind",
+          "apply",
+          "layer",
+          "variants",
+          "responsive",
+          "screen",
+          "custom-variant",
+          "theme"
+        ]
+      }
     ],
-    "rules": {
-        "at-rule-no-unknown": [
-            true,
-            {
-                "ignoreAtRules": [
-                    "tailwind",
-                    "apply",
-                    "layer",
-                    "variants",
-                    "responsive",
-                    "screen",
-                    "custom-variant",
-                    "theme"
-                ]
-            }
-        ],
-        "at-rule-no-deprecated": null,
-        "no-descending-specificity": null
-    }
+    "at-rule-no-deprecated": null,
+    "no-descending-specificity": null
+  }
 }
