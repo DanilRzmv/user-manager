@@ -19,8 +19,7 @@
                 ]
             }
         ],
-        "declaration-block-trailing-semicolon": "always",
-        "string-quotes": "single",
-        "at-rule-no-deprecated": null
+        "at-rule-no-deprecated": null,
+        "no-descending-specificity": null
     }
 }

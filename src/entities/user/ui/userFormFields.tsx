@@ -68,7 +68,7 @@ export const UserFormFields = ({ form }: UserFormFieldsProps) => (
               type="number"
               min={18}
               {...field}
-              onChange={(e: { target: { value: any } }) =>
+              onChange={(e: { target: { value: string } }) =>
                 field.onChange(Number(e.target.value))
               }
             />
