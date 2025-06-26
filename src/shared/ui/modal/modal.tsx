@@ -8,7 +8,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogDescription,
-} from "@/components/ui/dialog";
+} from "@/shared/ui/shadcn/dialog";
 import { CloseModal } from "@/shared/types/ui/modal";
 
 type ModalProps = {

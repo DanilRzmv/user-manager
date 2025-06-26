@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/shared/ui/shadcn/button";
 import { CreateUserForm } from "@/entities/user/ui/create-user-form";
 import { useCreateUserForm } from "@/features/user/create/model/useCreateUserForm";
 import { CloseModal } from "@/shared/types/ui/modal";

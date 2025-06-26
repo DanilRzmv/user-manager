@@ -1,5 +1,5 @@
-import { Form } from "@/components/ui/form";
-import { Button } from "@/components/ui/button";
+import { Form } from "@/shared/ui/shadcn/form";
+import { Button } from "@/shared/ui/shadcn/button";
 import { UserFormFields } from "@/entities/user/ui/userFormFields";
 import { UseFormReturn } from "react-hook-form";
 import { UserFormData } from "@/entities/user/model/userSchema";
