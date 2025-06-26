@@ -26,7 +26,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Run prettier check
-        run: pnpm prettier:check
+        run: pnpm prettier:format
 
   eslint-check:
     name: Eslint check
