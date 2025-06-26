@@ -1,17 +1,17 @@
-name: Code Quality Checks
+name: Test application
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+
   pull_request:
     types: [opened, synchronize, reopened]
 
 jobs:
-  setup:
-    name: Setup environment
+  prettier-check:
+    name: Prettier check
     runs-on: ubuntu-latest
-    outputs:
-      node-version: ${{ steps.setup-node.outputs.node-version }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -19,36 +19,30 @@ jobs:
         uses: pnpm/action-setup@v4
         with:
           version: 10
-      - name: Setup Node.js
-        id: setup-node
+      - name: Setup node
         uses: actions/setup-node@v4
         with:
           node-version: 22.x
       - name: Install dependencies
         run: pnpm install
-
-  prettier-check:
-    name: Prettier check
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - uses: actions/checkout@v4
-      - name: Reuse Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ needs.setup.outputs.node-version }}
-      - name: Run Prettier
+      - name: Run prettier check
         run: pnpm prettier:check
 
   eslint-check:
-    name: ESLint check
+    name: Eslint check
     runs-on: ubuntu-latest
-    needs: setup
     steps:
-      - uses: actions/checkout@v4
-      - name: Reuse Node.js
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - name: Setup node
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ needs.setup.outputs.node-version }}
-      - name: Run ESLint
+          node-version: 22.x
+      - name: Install dependencies
+        run: pnpm install
+      - name: Run eslint check
         run: pnpm eslint:format
