@@ -10,7 +10,30 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...compat.config({
+    extends: [
+      "next/core-web-vitals",
+      "next/typescript",
+      "prettier",
+      "plugin:tailwindcss/recommended",
+    ],
+    plugins: ["tailwindcss"],
+    rules: {
+      semi: ["error"],
+      quotes: ["error", "double"],
+      "prefer-arrow-callback": ["error"],
+      "prefer-template": ["error"],
+      "tailwindcss/classnames-order": "warn",
+      "tailwindcss/no-custom-classname": "warn",
+      "tailwindcss/no-contradicting-classname": "error",
+    },
+    settings: {
+      tailwindcss: {
+        callees: ["cn", "clsx"],
+        config: "tailwind.config.js",
+      },
+    },
+  }),
 ];
 
 export default eslintConfig;
